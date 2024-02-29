@@ -15,6 +15,7 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
 
+
   // firebase storage
   // allow read;
   // allow write: if
@@ -25,6 +26,7 @@ export default function Profile() {
     if (file) {
       handleFileUpload(file);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
 
   const handleFileUpload = (file) => {
@@ -40,6 +42,7 @@ export default function Profile() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setFilePerc(Math.round(progress));
       },
+      // eslint-disable-next-line no-unused-vars
       (error) => {
         setFileUploadError(true);
       },
@@ -54,7 +57,7 @@ export default function Profile() {
   return (
     
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
+      <h1 className='text-3xl font-semibold text-center my-7'>Profilo</h1>
       <form className='flex flex-col gap-4'>
       <input
           onChange={(e) => setFile(e.target.files[0])}
@@ -72,12 +75,12 @@ export default function Profile() {
         <p className='text-sm self-center'>
           {fileUploadError ? (
             <span className='text-red-700'>
-              Error Image upload (image must be less than 2 mb)
+              Errore nel caricamento delle immagini (L immagine dev essere inferiore a 2 mb)
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className='text-green-700'>Image successfully uploaded!</span>
+            <span className='text-green-700'>Immagine caricata con successo</span>
           ) : (
             ''
           )}
@@ -105,8 +108,8 @@ export default function Profile() {
         </button>
       </form>
       <div className='flex justify-between mt-5'>
-        <span className='text-red-700 cursor-pointer'>Delete account</span>
-        <span className='text-red-700 cursor-pointer'>Sign out</span>
+        <span className='text-red-700 cursor-pointer'>Cancella account</span>
+        <span className='text-red-700 cursor-pointer'>Disconettiti</span>
       </div>
     </div>
   
