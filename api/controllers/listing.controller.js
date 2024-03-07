@@ -5,6 +5,7 @@ export const createListing = async (req, res, next) => {
     const listing = await Listing.create(req.body);
     return res.status(201).json(listing);
   } catch (error) {
+    console.error("Errore durante la creazione dell'annuncio:", error);
     next(error);
   }
 };
