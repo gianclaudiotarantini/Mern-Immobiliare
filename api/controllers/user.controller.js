@@ -60,7 +60,7 @@ export const updateUser = async (req, res, next) => {
         next(error);
       }
     } else {
-      return next(errorHandler(401, ' Tu puoi accedere solo al tuo account'));
+      return next(errorHandler(401, ' Tu puoi vedere solo i tuoi annunci'));
     }
   };
   
