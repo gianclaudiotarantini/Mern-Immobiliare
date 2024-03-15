@@ -256,7 +256,7 @@ export default function Profile() {
               >
                 <Link to={`/listing/${listing._id}`}>
                   <img
-                  src={listing.immagineUrl.length > 0? Number(listing.immagineUrl[0]) : 'https://via.placeholder.com/150'}
+                  src={listing.immagineUrl[0]}
                     alt='listing cover'
                     className='h-16 w-16 object-contain'
                   />
@@ -270,7 +270,9 @@ export default function Profile() {
   
                 <div className='flex flex-col item-center'>
                   <button onClick={ () => handleListingDelete(listing._id)} className='text-red-700 uppercase'>Cancella</button>
+                  <Link to={`/update-listing/${listing._id}`}> 
                   <button className='text-green-700 uppercase'>Modifica</button>
+                  </Link>
                 </div>
               </div>
             );
